@@ -1,5 +1,6 @@
-package com.doranco.service;
+package com.doranco.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,11 +14,7 @@ public class CommentaireService {
     @Autowired
 	private CommentaireRepository commentaireRepository;
 	
-	public Iterable<Commentaire> getComments() {
+	public List<Commentaire> getCommentaires() {
 		return commentaireRepository.findAll();
-	}
+	}}
 	
-	public Optional<Commentaire> getCommentById(Integer id) {
-		return commentaireRepository.findById(id);
-	}
-}
