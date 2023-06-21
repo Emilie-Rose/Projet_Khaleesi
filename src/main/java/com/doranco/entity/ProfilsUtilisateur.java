@@ -1,4 +1,4 @@
-package com.doranco.repository;
+package com.doranco.entity;
 
 import jakarta.annotation.Generated;
 

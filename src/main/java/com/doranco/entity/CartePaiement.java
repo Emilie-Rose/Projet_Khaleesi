@@ -1,11 +1,13 @@
 package com.doranco.entity;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "cartePaiement")
+@Table(name = "carteDePaiement")
 public class CartePaiement {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,8 +25,10 @@ public class CartePaiement {
     private String dateFinValidite;
     
     private String cryptogramme;
-    
-    private String utilisateur;
+
+    @ManyToOne
+    @JoinColumn(name = "utilisateur_id")
+    private Utilisateur utilisateur;
 
 
 }

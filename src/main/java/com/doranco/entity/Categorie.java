@@ -1,12 +1,9 @@
 package com.doranco.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.List;
 
 @Entity
 @Data
@@ -21,15 +18,16 @@ public class Categorie {
     private String nom;
     
     @Column(name = "remise")
-    private int remise;
+    private double remise;
     
     @Column(name = "is_remise_cumulable")
     private boolean isRemiseCumulable;
     
     @Column(name = "photo")
     private String photo;
-    // @Column(name = "articles")
-    // private List<Article> articles;
+
+    @OneToMany(mappedBy = "categorie")
+    private List<Article> articles;
 
 
 }

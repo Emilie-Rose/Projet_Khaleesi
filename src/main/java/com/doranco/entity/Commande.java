@@ -1,11 +1,9 @@
 package com.doranco.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import java.time.LocalDate;
+import java.util.List;
+
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
@@ -33,18 +31,25 @@ public class Commande {
     
     @Column(name = "total_general")
     private double totalGeneral;
-    
-    @Column(name = "adresse_facturation")
-    private String adresseFacturation;
-    
-    @Column(name = "adresse_livraison")
-    private String adresseLivraison;
 
-    // @JoinColumn(name = "user_id")
-    // private Utilisateur utilisateur;
+    @OneToOne
+    @JoinColumn(name = "adresse_facturation_id")
+    private Adresse adresseFacturation;
 
-    // @OneToMany(mappedBy = "commande")
-    // private List<LigneDeCommande> ligneDeCommandes;
+    @OneToOne
+    @JoinColumn(name = "adresse_livraison_id")
+    private Adresse adresseLivraison;
+
+    @OneToOne
+    @JoinColumn(name = "carte_paiement_defaut_id")
+    private CartePaiement cartePaiementDefaut;
+
+    @ManyToOne
+    @JoinColumn(name = "utilisateur_id")
+    private Utilisateur utilisateur;
+
+    @OneToMany(mappedBy = "commande")
+    private List<LigneDeCommande> lignesCommande;
 
 
     public Commande() {
