@@ -1,6 +1,6 @@
-package com.doranco.service;
+package com.doranco.services;
 
-import java.util.Optional;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,12 +14,12 @@ public class CategorieService {
     @Autowired
 	private CategorieRepository categorieRepository;
 	
-	public Iterable<Categorie> getCategories() {
+
+	public List<Categorie> getCategories()
+	{
+
 		return categorieRepository.findAll();
-	}
-	
-	public Optional<Categorie> getCategoryById(Integer id) {
-		return categorieRepository.findById(id);
+
 	}
 
 }

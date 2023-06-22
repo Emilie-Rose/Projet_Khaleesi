@@ -6,6 +6,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import lombok.Data;
 
 @Entity
@@ -25,12 +28,15 @@ public class LigneDeCommande {
     
     @Column(name = "remise_article")
     private double remiseArticle;
-    
-    // @JoinColumn(name = "commande_id")
-    // private Commande commande;
-    
-    // @JoinColumn(name = "article_id")
-    // private Article article;
+
+    @OneToOne
+    @JoinColumn(name = "article_id")
+    private Article article;
+
+    @ManyToOne
+    @JoinColumn(name = "commande_id")
+    private Commande commande;
+
 
 
 }

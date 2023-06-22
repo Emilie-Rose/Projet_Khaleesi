@@ -1,7 +1,14 @@
 package com.doranco.repository;
 
-import org.springframework.data.repository.CrudRepository;
 import com.doranco.entity.Categorie;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface CategorieRepository extends CrudRepository<Categorie, Integer> {
+@Repository
+public interface CategorieRepository extends JpaRepository<Categorie, Long> {
+
+    Categorie findById(long id);
+    
+    // Ajoutez d'autres méthodes de requête personnalisées si nécessaire
 }
+

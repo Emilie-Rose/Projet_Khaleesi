@@ -1,17 +1,14 @@
 package com.doranco.entity;
 
+import java.time.LocalDate;
+import java.util.List;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "users")
+@Table(name = "utilisateur")
 public class Utilisateur {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,18 +41,20 @@ public class Utilisateur {
     @Column(name = "adresse")
     private String adresse;
 
-    
-    // @Column(name = "adresses")
-    // private List<Adresse> adresses;
-    
-    // @Column(name = "commandes")
-    // private List<Commande> commandes;
-    
-    // @Column(name = "commentaires")
-    // private List<Commentaire> commentaires;
-    
-    // @Column(name = "panier")
-    // private Panier panier;
+    @OneToMany(mappedBy = "utilisateur")
+    private List<Adresse> adresses;
+
+    @OneToMany(mappedBy = "utilisateur")
+    private List<Commande> commandes;
+
+    @OneToMany(mappedBy = "utilisateur")
+    private List<CartePaiement> cartesDePaiement;
+
+    @OneToMany(mappedBy = "utilisateur")
+    private List<Commentaire> commentaires;
+
+    @OneToMany(mappedBy = "utilisateur")
+    private List<ArticlePanier> panier;
 
 
 

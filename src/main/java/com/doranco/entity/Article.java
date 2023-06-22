@@ -7,7 +7,13 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import lombok.Data;
+
+import java.util.List;
 
 @Entity
 @Data
@@ -40,9 +46,13 @@ public class Article {
     
     @Column(name = "videos")
     private String videos;
-    
-    // @Column(name = "commentaires")
-    // private List<Commentaire> commentaires;
+
+    @OneToMany(mappedBy = "article")
+    private List<Commentaire> commentaires;
+
+    @ManyToOne
+    @JoinColumn(name = "categorie_id")
+    private Categorie categorie;
 
 
 }

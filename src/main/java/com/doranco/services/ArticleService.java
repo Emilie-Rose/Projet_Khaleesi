@@ -1,6 +1,6 @@
-package com.doranco.service;
+package com.doranco.services;
 
-import java.util.Optional;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,12 +12,15 @@ import com.doranco.repository.ArticleRepository;
 public class ArticleService {
     @Autowired
 	private ArticleRepository articleRepository;
-	
-	public Iterable<Article> getProducts() {
-		return articleRepository.findAll();
+
+	public ArticleService(ArticleRepository articleRepository) {
+		this.articleRepository = articleRepository;
 	}
-	
-	public Optional<Article> getProductById(Integer id) {
-		return articleRepository.findById(id);
-	}	
+
+	public List<Article> recuperationArticles()
+	{
+
+		return articleRepository.findAll();
+
+	}
 }
