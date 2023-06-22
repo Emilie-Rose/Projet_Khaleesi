@@ -30,13 +30,11 @@ public class AddArticleController {
     @PostMapping("/add-article")
     public RedirectView addArticle(@ModelAttribute("article") @Validated Article article,
                                      BindingResult bindingResult) {
+        Article savedArcticle = articleRepository.saveAndFlush(article);
         if (bindingResult.hasErrors()) {
             return new RedirectView("/add-article?error");
         }
 
-        Article savedArcticle = articleRepository.save(article);
-
             return new RedirectView("/gestion-achat.html");
-
     }
 }
