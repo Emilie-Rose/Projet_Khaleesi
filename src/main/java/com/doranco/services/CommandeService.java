@@ -1,0 +1,40 @@
+package com.doranco.services;
+
+import com.doranco.entity.Commande;
+import com.doranco.repository.CommandeRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class CommandeService {
+
+    private final CommandeRepository commandeRepository;
+
+    @Autowired
+    public CommandeService(CommandeRepository commandeRepository) {
+        this.commandeRepository = commandeRepository;
+    }
+
+    public List<Commande> getAllCommandes() {
+        return commandeRepository.findAll();
+    }
+
+    public Commande getCommandeById(Long id) {
+        return commandeRepository.findById(id).orElse(null);
+    }
+
+    public Commande createCommande(Commande commande) {
+        return commandeRepository.save(commande);
+    }
+
+    public Commande updateCommande(Commande commande) {
+        return commandeRepository.save(commande);
+    }
+
+    public void deleteCommande(Long id) {
+        commandeRepository.deleteById(id);
+    }
+}
+

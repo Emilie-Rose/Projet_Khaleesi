@@ -11,15 +11,31 @@ import com.doranco.entity.Categorie;
 
 @Service
 public class CategorieService {
-    @Autowired
-	private CategorieRepository categorieRepository;
-	
+	private final CategorieRepository categorieRepository;
 
-	public List<Categorie> getCategories()
-	{
+	@Autowired
+	public CategorieService(CategorieRepository categorieRepository) {
+		this.categorieRepository = categorieRepository;
+	}
 
+	public List<Categorie> getAllCategories() {
 		return categorieRepository.findAll();
+	}
 
+	public Categorie getCategorieById(Long id) {
+		return categorieRepository.findById(id).orElse(null);
+	}
+
+	public Categorie createCategorie(Categorie categorie) {
+		return categorieRepository.save(categorie);
+	}
+
+	public Categorie updateCategorie(Categorie categorie) {
+		return categorieRepository.save(categorie);
+	}
+
+	public void deleteCategorie(Long id) {
+		categorieRepository.deleteById(id);
 	}
 
 }
