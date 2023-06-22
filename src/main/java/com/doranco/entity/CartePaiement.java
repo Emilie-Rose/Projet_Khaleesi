@@ -7,7 +7,7 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "carteDePaiement")
+@Table(name = "cartes_Paiement")
 public class CartePaiement {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
