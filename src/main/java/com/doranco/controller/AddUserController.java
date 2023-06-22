@@ -27,7 +27,7 @@ public class AddUserController {
     @GetMapping("/register")
     public String showRegistrationForm(Model model) {
         model.addAttribute("utilisateur", new Utilisateur());
-        return "add-utilisateur";
+        return "add-utilisateur.html";
     }
 
     @PostMapping("/register")
