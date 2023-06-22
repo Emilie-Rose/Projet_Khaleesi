@@ -35,8 +35,8 @@ public class AddArticleController {
         }
 
         Article savedArcticle = articleRepository.save(article);
-        else{
+
             return new RedirectView("/gestion-achat.html");
-        }
+
     }
 }
