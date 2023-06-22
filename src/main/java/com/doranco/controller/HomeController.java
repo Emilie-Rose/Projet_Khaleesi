@@ -8,13 +8,13 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class HomeController {
 
-	@RequestMapping("/accueil")
+	@RequestMapping("/")
     public ModelAndView accueil(Model model) {
         
 
 
-        model.addAttribute("data","Welcome home man" );
+        model.addAttribute("data","invité" );
+        //return "accueil";
         return new ModelAndView("accueil.html");
     }
 }
-

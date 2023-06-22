@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
+
 <head>
   <title>Inscription - Ajouter un utilisateur</title>
   <style>
@@ -58,12 +59,14 @@
     }
 
     input[type="submit"] {
-      background-color: #4CAF50;
+      background-color: #a1184d;
       color: #fff;
       padding: 10px 20px;
       border: none;
       border-radius: 4px;
       cursor: pointer;
+      /* centré le bouton */
+      margin-left: 25%;
     }
 
     input[type="submit"]:hover {
@@ -72,14 +75,15 @@
   </style>
 </head>
 <body>
+ <!-- quand on clique sur le bouton submit une pop-op s'affiche comfirmant la creation du compte -->
   <div class="container">
     <h2>Inscription - Création d'un compte utilisateur</h2>
-    <form action="/utilisateur" method="post">
+    <form action="/register" method="post">
       <label for="nom">Nom:</label>
       <input type="text" id="nom" name="nom" placeholder="Entrez votre nom" required>
 
       <label for="prenom">Prenom:</label>
-      <input type="text" id="prenom" nameé="prenom" placeholder="Entrez votre prenom" required>
+      <input type="text" id="prenom" name="prenom" placeholder="Entrez votre prenom" required>
 
       <label for="dateNaissance">Date de Naissance:</label>
       <input type="date" id="dateNaissance" name="dateNaissance" required>
@@ -99,7 +103,17 @@
  
 
       <input type="submit" value="Creer le compte">
+
     </form>
   </div>
+  <script>
+    // Vous avez mentionné vouloir afficher une popup de confirmation lors de la création du compte.
+    // Vous pouvez ajouter un script JavaScript ici pour gérer cet événement.
+    // Voici un exemple simple qui affiche une fenêtre d'alerte lors de la soumission du formulaire :
+    const form = document.querySelector('form');
+    form.addEventListener('submit', function() {
+      alert('Compte créé avec succès!');
+    });
+  </script>
 </body>
 </html>

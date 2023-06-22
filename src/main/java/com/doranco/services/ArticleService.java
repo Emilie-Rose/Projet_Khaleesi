@@ -17,10 +17,23 @@ public class ArticleService {
 		this.articleRepository = articleRepository;
 	}
 
-	public List<Article> recuperationArticles()
-	{
-
+	public List<Article> getAllArticles() {
 		return articleRepository.findAll();
+	}
 
+	public Article getArticleById(Long id) {
+		return articleRepository.findById(id).orElse(null);
+	}
+
+	public Article createArticle(Article article) {
+		return articleRepository.save(article);
+	}
+
+	public Article updateArticle(Article article) {
+		return articleRepository.save(article);
+	}
+
+	public void deleteArticle(Long id) {
+		articleRepository.deleteById(id);
 	}
 }

@@ -1,7 +1,7 @@
 package com.doranco.controller;
 
 import com.doranco.entity.Adresse;
-import com.doranco.entity.ProfilsUtilisateur;
+import com.doranco.entity.Profil;
 import com.doranco.entity.Utilisateur;
 import com.doranco.repository.UtilisateurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,7 +47,7 @@ public class UtilisateurController {
     }
 
     @GetMapping("/profil/{profil}")
-    public Utilisateur getUtilisateurByProfil(@PathVariable ProfilsUtilisateur profil) {
+    public Utilisateur getUtilisateurByProfil(@PathVariable Profil profil) {
         return utilisateurRepository.findByProfil(profil);
     }
 }

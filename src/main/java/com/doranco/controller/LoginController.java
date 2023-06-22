@@ -39,10 +39,8 @@ public class LoginController {
         Utilisateur utilisateur = utilisateurRepository.findByEmail(email);
 
         if (utilisateur != null && utilisateur.getPassword().equals(password)) {
-        	System.out.println("oui");
-            return new RedirectView("/gestion");
+            return new RedirectView("/gestion-achats.html");
         } else {
-        	System.out.println("non");
             return new RedirectView("/login");
         }
     }

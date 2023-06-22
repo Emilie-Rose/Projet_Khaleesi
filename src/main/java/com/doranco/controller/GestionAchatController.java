@@ -15,7 +15,7 @@ public class GestionAchatController {
     public ModelAndView accueil(Model model) {
         
 
-        model.addAttribute("listArticles",articleService.recuperationArticles() );
+        model.addAttribute("listArticles",articleService.getAllArticles() );
         return new ModelAndView("gestion-achats.html");
     }
 }

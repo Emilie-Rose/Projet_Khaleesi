@@ -26,7 +26,8 @@ public class Utilisateur {
     @Column(name = "is_actif")
     private boolean isActif;
     
-    @Column(name = "profil")
+    //@Enumerated(EnumType.STRING)
+    @Column(name = "role")
     private String profil;
     
     @Column(name = "email")
@@ -55,8 +56,6 @@ public class Utilisateur {
 
     @OneToMany(mappedBy = "utilisateur")
     private List<ArticlePanier> panier;
-
-
 
 
 }
