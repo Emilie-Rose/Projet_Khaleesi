@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <html>
 <head>
   <title>Accueil</title>
@@ -10,14 +11,16 @@
   <h2>Nom du site</h2>
   <!-- Infos utilisateur connecté -->
   <div>
-    <span>Bonjour Prénom</span>
-    <a href="logout.html">Déconnexion</a>
-    <a href="panier.html">Panier (0)</a>
-    <a href="commandes.html">Historique des commandes</a>
+    <span>th:text="'Bonjour, ' + ${utilisateur}"</span>
+    <a href="/logout.html">Déconnexion</a>
+    <a href="/panier.html">Panier (0)</a>
+    <a href="/commandes.html">Historique des commandes</a>
+    <a href="/add-utilisateur.html">Créer un compte</a>
+    <a href="/login-utilisateur.html">Se connecter</a>
   </div>
   <!-- Lien de connexion pour utilisateur déconnecté -->
   <div>
-    <a href="login-utilisateur.html">Connexion</a>
+    <a href="/login-utilisateur.html">Connexion</a>
   </div>
 </header>
 

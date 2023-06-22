@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- En-tête de la page -->
+</head>
+<body>
+    <!-- Corps de la page -->
+    <h1>Gestion des articles</h1>
+    <!-- Tableau pour afficher les articles existants -->
+    <table>
+        <thead>
+            <tr>
+                <th>Nom de l'article</th>
+                <th>Description</th>
+                <th>Prix unitaire</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Nom de l'article 1</td>
+                <td>Description de l'article 1</td>
+                <td>10.00 €</td>
+                <td>
+                    <a href="#">Modifier</a>
+                    <a href="#">Supprimer</a>
+                </td>
+            </tr>
+            <!-- ... -->
+        </tbody>
+    </table>
+    <!-- Formulaire pour ajouter un nouvel article -->
+    <form action="/article" method="post">
+        <!-- Champs pour le nom, la description, le prix, etc. de l'article -->
+        <input type="submit" value="Ajouter">
+    </form>
+</body>
+</html>
