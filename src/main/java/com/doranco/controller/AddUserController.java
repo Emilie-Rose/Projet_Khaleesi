@@ -29,7 +29,7 @@ public class AddUserController {
     }
 
     @PostMapping("/register")
-    public RedirectView registerUser(@ModelAttribute("utilisateur") @Validated Utilisateur utilisateur,
+    public RedirectView registerUtilisateur(@ModelAttribute("utilisateur") @Validated Utilisateur utilisateur,
                                      BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return new RedirectView("/register?error");

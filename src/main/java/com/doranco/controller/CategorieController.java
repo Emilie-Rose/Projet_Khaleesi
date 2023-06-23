@@ -21,9 +21,9 @@ public class CategorieController {
 
     @GetMapping("/{id}")
     public Categorie getCategorieById(@PathVariable long id) {
+
         return categorieRepository.findById(id);
     }
 
-    // Ajoutez d'autres méthodes de contrôleur si nécessaire
 }
 

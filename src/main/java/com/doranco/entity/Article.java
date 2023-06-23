@@ -1,6 +1,7 @@
 package com.doranco.entity;
 
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -49,9 +50,13 @@ public class Article {
     @OneToMany(mappedBy = "article")
     private List<Commentaire> commentaires;
 
-    @ManyToOne
-    @JoinColumn(name = "categorie_id")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "categorie_id",referencedColumnName = "category_id")
     private Categorie categorie;
+
+    @ManyToOne
+    @JoinColumn(name = "utilisateur_id")
+    private Utilisateur utilisateur;
 
 
 }

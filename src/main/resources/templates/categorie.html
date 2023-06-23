@@ -87,7 +87,7 @@
 			<thead class="thead-light">
 				<tr>
 					<th scope="col">SN</th>
-					<th scope="col">Category Name</th>
+					<th scope="col">Categorie</th>
 					<th scope="col">Delete</th>
 					<th scope="col">Update</th>
 				</tr>
@@ -97,7 +97,7 @@
 				<c:forEach var="category" items="${categories }">
 				<tr>
 					<td>${category.id }</td>
-					<td>${category.name }</td>
+					<td>${category.nom }</td>
 
 					<td>
 						<form action="categories/delete" method="get">
@@ -115,7 +115,7 @@
 							<!-- Button trigger modal -->
 							<button type="button" class="btn btn-warning" data-toggle="modal"
 								data-target="#exampleModalCenter2"
-								onclick="document.getElementById('categoryname').value =  '${category.name }'; document.getElementById('categoryid').value =  '${category.id}'; ">Update
+								onclick="document.getElementById('categorie').value =  '${categorie.nom }'; document.getElementById('categoryid').value =  '${category.id}'; ">Update
 							</button>
 
 							<!-- Modal -->
@@ -140,7 +140,7 @@
 												</div>
 												<div class="form-group">
 													<input class="form-control" type="text" name= "categoryname" id="categoryname"
-														value="categoryname">
+														value="categorie">
 												</div>
 
 											</div>

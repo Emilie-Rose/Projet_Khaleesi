@@ -1,9 +1,7 @@
 package com.doranco.controller;
 
-import com.doranco.entity.Article;
-import com.doranco.entity.Categorie;
-import com.doranco.entity.Utilisateur;
-import com.doranco.repository.ArticleRepository;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,7 +15,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
  */import org.springframework.web.servlet.view.RedirectView;
 
-import java.util.List;
+import com.doranco.entity.Article;
+import com.doranco.entity.Categorie;
+import com.doranco.repository.ArticleRepository;
 
 @Controller
 public class ArticleController {
@@ -42,16 +42,23 @@ public class ArticleController {
         model.addAttribute("article", new Article());
         return "/article.html";
     }
- @PostMapping("/article")
-    public RedirectView addArticle(@ModelAttribute("article") @Validated Article article,
-                                     BindingResult bindingResult) {
-        Article savedArticle = articleRepository.save(article);
 
-            return new RedirectView("/gestion-achat.html");
-    }
-    @GetMapping("/categorie/{categorie}")
+    @PostMapping("/article")
+    public RedirectView addArticle(@ModelAttribute("article") @Validated Article article,
+                                   BindingResult bindingResult) {
+                                    //Article savedArticle = articleRepository.save(article);
+        if (bindingResult.hasErrors()) {
+            // Gérer les erreurs de validation ici
+            return new RedirectView("/article");
+        }
+
+ articleRepository.save(article);
+    return new RedirectView("/gestion-achat.html");
+                                   }
+/*                                     @GetMapping("/categorie/{categorie}")
     public List<Article> getArticlesByCategorie(@PathVariable Categorie categorie) {
         return articleRepository.findByCategorie(categorie);
     }
+ */}
     
-}
+
